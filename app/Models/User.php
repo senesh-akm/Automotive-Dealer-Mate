@@ -17,9 +17,15 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
+        'emp_number',
         'name',
+        'designation',
+        'is_head_office',
+        'branch',
         'email',
         'password',
+        'is_active',
+        'is_super_admin',
     ];
 
     /**
@@ -43,5 +49,10 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    public function permissions()
+    {
+        return $this->hasOne(UserPermission::class);
     }
 }
