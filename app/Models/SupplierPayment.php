@@ -25,4 +25,8 @@ class SupplierPayment extends Model
         'reciever_swift_code',
         'transfered_amount',
     ];
+
+    protected $casts = [
+        'transfered_amount' => 'decimal:2',
+    ];
 }

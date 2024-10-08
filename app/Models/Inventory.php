@@ -24,4 +24,12 @@ class Inventory extends Model
         'category',
         'comments',
     ];
+
+    protected $casts = [
+        'quantity_available' => 'integer',
+        'unit_price' => 'decimal:2',
+        'date_added' => 'date',
+        'last_updated' => 'date',
+        'minimum_stock_level' => 'integer',
+    ];
 }

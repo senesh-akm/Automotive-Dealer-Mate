@@ -22,4 +22,10 @@ class Vehicle extends Model
         'price',
         'availability',
     ];
+
+    protected $casts = [
+        'year' => 'integer',
+        'mileage' => 'integer',
+        'price' => 'decimal:2',
+    ];
 }
