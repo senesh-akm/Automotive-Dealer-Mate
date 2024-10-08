@@ -12,4 +12,8 @@ class Brand extends Model
     protected $fillable = [
         'brand',
     ];
+
+    protected $casts = [
+        'brand' => 'string',
+    ];
 }

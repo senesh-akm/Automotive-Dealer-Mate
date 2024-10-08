@@ -21,6 +21,12 @@ class IsRegistered extends Model
         'notes',
     ];
 
+    protected $casts = [
+        'registration_date' => 'date',
+        'purchase_date' => 'date',
+        'purchase_price' => 'decimal:2',
+    ];
+
     public function vehicle()
     {
         return $this->belongsTo(Vehicle::class);

@@ -12,4 +12,8 @@ class CompanyBranch extends Model
     protected $fillable = [
         'branch',
     ];
+
+    protected $casts = [
+        'branch' => 'string',
+    ];
 }

@@ -11,13 +11,8 @@ class User extends Authenticatable
 {
     use HasFactory, Notifiable;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
     protected $fillable = [
-        'emp_number',
+        'employee_number',
         'name',
         'designation',
         'is_head_office',
@@ -26,29 +21,27 @@ class User extends Authenticatable
         'password',
         'is_active',
         'is_super_admin',
+        'email_verified_at',
     ];
 
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array<int, string>
-     */
     protected $hidden = [
         'password',
         'remember_token',
     ];
 
-    /**
-     * Get the attributes that should be cast.
-     *
-     * @return array<string, string>
-     */
     protected function casts(): array
     {
         return [
+            'is_active' => 'boolean',
+            'is_super_admin' => 'boolean',
+            'is_head_office' => 'boolean',
             'email_verified_at' => 'datetime',
-            'password' => 'hashed',
         ];
+    }
+
+    public function setPasswordAttribute($value)
+    {
+        $this->attributes['password'] = bcrypt($value);
     }
 
     public function permissions()

@@ -25,4 +25,8 @@ class CustomerPayment extends Model
         'sender_swift_code',
         'transfered_amount',
     ];
+
+    protected $casts = [
+        'transfered_amount' => 'decimal:2',
+    ];
 }

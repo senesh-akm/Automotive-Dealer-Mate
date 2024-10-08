@@ -9,8 +9,6 @@ class Customer extends Model
 {
     use HasFactory;
 
-    protected $table = 'customers';
-
     protected $fillable = [
         'customer_group_code',
         'customer_group',
@@ -29,4 +27,13 @@ class Customer extends Model
     protected $casts = [
         'is_company_or_person' => 'string',  // Enum stored as a string
     ];
+
+    public function getContactDetails()
+    {
+        return [
+            'email' => $this->contact_email ?? $this->email,
+            'phone' => $this->contact_phone_number ?? $this->phone_number,
+            'contact_person' => $this->contact_person ?? $this->customer_name,
+        ];
+    }
 }

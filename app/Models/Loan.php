@@ -18,4 +18,12 @@ class Loan extends Model
         'monthly_payment',
         'total_payment',
     ];
+
+    protected $casts = [
+        'loan_amount' => 'decimal:2',
+        'annual_interest_rate' => 'float',
+        'down_payments' => 'decimal:2',
+        'monthly_payment' => 'decimal:2',
+        'total_payment' => 'decimal:2',
+    ];
 }
