@@ -16,13 +16,13 @@ class SuperAdminSeeder extends Seeder
     public function run(): void
     {
         DB::table('users')->insert([
-            'employee_number' => 'EMP0001',
-            'name' => 'Administrator',
-            'designation' => 'Admin',
+            'employee_number' => 'EMP001',
+            'name' => 'Super Admin',
+            'designation' => 'Administrator',
             'is_head_office' => true,
-            'branch' => 'Colombo',
-            'email' => 'admin@admin.com',
-            'password' => Hash::make('admin123'), // Ensure you hash the password
+            'branch' => 'Head Office',
+            'email' => 'superadmin@example.com',
+            'password' => Hash::make('password123'),
             'is_active' => true,
             'is_super_admin' => true,
             'email_verified_at' => now(),
