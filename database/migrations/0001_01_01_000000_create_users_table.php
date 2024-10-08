@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('employee_number')->unique()->nullable();
             $table->string('name');
-            $table->string('designation');
+            $table->string('designation')->default('Employee');
             $table->boolean('is_head_office')->default(false);
             $table->string('branch');
             $table->string('email')->unique();
